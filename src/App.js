@@ -90,6 +90,7 @@ class App extends React.Component {
     )
   }
   deleteOrder(id){
+      this.setState({orders: this.state.orders.filter(el => el.id !== id)})
       console.log(id);
   }
   addToOrder(item){
