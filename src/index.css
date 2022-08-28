@@ -37,7 +37,16 @@ header ul.nav li:hover{
 
 }
 
+header .shop-cart-button{
+    float:right;
+    cursor:pointer;
+    transition: color 500ms ease;
 
+}
+header .shop-cart-button:hover,
+header .shop-cart-button.active{    
+    color: #dc3d3d;
+}
 header .presentation{
     margin:50px 0;
     background: url('./img/kitchen.jpg') no-repeat;
@@ -72,9 +81,54 @@ header .presentation::before{
     
 }
 
-
-
-
+main{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+    justify-content: space-between;
+}
+main .item{
+    width:30%;
+    overflow: hidden;
+    background: #f2f2f2;
+    position: relative;
+}
+main .item h2,
+main .item p,
+main .item b{
+    margin:10px 20px;
+}
+main .item b{
+    color: rgba(231, 3, 3, 0.747);
+    
+}
+main .item img{
+    width:100%;
+    max-height: 200px;
+    transition: transform 500ms ease;
+}
+main .item img:hover{
+    transform: scale(1.05);
+}
+main .add-to-card{
+    position:absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #ca5252;
+    width:35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color:#fff;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 500ms ease;
+}
+main .add-to-card:hover{
+    transform: scale(1.5);
+}
 footer{
     text-align: center;
     margin-top: 100px;
