@@ -11,6 +11,7 @@ class App extends React.Component {
       super(props) //пропсы будем передавать в конструктор родительского класса 
       //создаем состояние
       this.state = {
+        orders : [],
         items : [
           {
             id:1,
@@ -76,15 +77,26 @@ class App extends React.Component {
           }
         ]
       }
+      this.addToOrder = this.addToOrder.bind(this)
   }
   render() {
     return (
       <div className="wrapper">
-        <Header />
-        <Items items={this.state.items} />
+        <Header orders={this.state.orders} />
+        <Items items={this.state.items} onAdd={this.addToOrder} />
         <Footer />
       </div>
     )
+  }
+
+  addToOrder(item){
+      let isInArray
+      this.state.orders.forEach(element => {
+        if (element.id === item.id)
+          isInArray = true
+      })
+      if (!isInArray)
+        this.setState({orders : [...this.state.orders, item]} )
   }
 }
 
